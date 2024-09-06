@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS contacts (
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(45) NOT NULL,
+last_name VARCHAR(45) NOT NULL,
+phone_number VARCHAR(45) NOT NULL UNIQUE,
+email VARCHAR(45) NULL DEFAULT 'Does not have',
+created_at DATETIME NOT NULL,
+created_by VARCHAR(45) NOT NULL,
+updated_at DATETIME NULL,
+updated_by VARCHAR(45) NULL
+);
+
+
+
