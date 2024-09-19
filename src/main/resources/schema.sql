@@ -11,4 +11,17 @@ updated_by VARCHAR(45) NULL
 );
 
 
+INSERT INTO contacts (name, last_name, phone_number, email, created_at, created_by)
+VALUES ('John', 'Doe', '5514151617', 'johndoe@example.com', NOW(), 'Juan DLR');
+
+INSERT INTO contacts (name, last_name, phone_number, created_at, created_by)
+VALUES ('Jane', 'Smith', '5547958671', NOW(), 'Juan DLR');
+
+INSERT INTO contacts (name, last_name, phone_number, email, created_at, created_by)
+VALUES ('Michael', 'Johnson', '5547521238', 'michaeljohnson@example.com', NOW(), 'Juan DLR');
+
+INSERT INTO contacts (name, last_name, phone_number, email, created_at, created_by)
+VALUES ('Bruce', 'Banner', '5518221827', 'greenhulk@example.com', NOW(), 'Juan DLR');
+
+
 
