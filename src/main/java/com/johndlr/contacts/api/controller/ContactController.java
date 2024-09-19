@@ -18,7 +18,6 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -28,12 +27,12 @@ import org.springframework.web.bind.annotation.*;
         description = "CRUD REST APIs to CREATE, UPDATE, FETCH AND DELETE contacts details"
 )
 @RestController
-@RequestMapping(path="/api/v1", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(path="/api/v1")
 @AllArgsConstructor
 @Validated
 public class ContactController {
 
-    private final IContactService iContactService;
+    private final IContactService contactService;
 
     @Operation(
             summary = "Create Contact REST API",
@@ -55,7 +54,7 @@ public class ContactController {
     )
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createContact(@Valid @RequestBody ContactDto contactDto){
-        iContactService.createContact(contactDto);
+        contactService.createContact(contactDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(new ResponseDto(ContactConstants.STATUS_201,ContactConstants.MESSAGE_201));
     }
 
@@ -83,9 +82,8 @@ public class ContactController {
             @Pattern(regexp = "(^$|[0-9]{10})", message = "Phone number must be 10 digits")
             @RequestParam String phoneNumber){
 
-        ContactDto contactDto = iContactService.fetchContact(phoneNumber);
+        ContactDto contactDto = contactService.fetchContact(phoneNumber);
         return ResponseEntity.status(HttpStatus.OK).body(contactDto);
-
     }
 
     @Operation(
@@ -107,11 +105,8 @@ public class ContactController {
     }
     )
     @GetMapping("/contacts/pagination")
-    public ResponseEntity<Page<Contact>> fetchContactsPaginationAndSorting(
-            @RequestParam Integer pageNumber,
-            @RequestParam Integer pageSize,
-            @RequestParam String sortProperty){
-        return ResponseEntity.status(HttpStatus.OK).body(iContactService.fetchContactsPaginationAndSorting(pageNumber, pageSize, sortProperty));
+    public ResponseEntity<Page<Contact>> fetchContactsPaginationAndSorting(@RequestParam Integer pageNumber,@RequestParam Integer pageSize,@RequestParam String sortProperty){
+        return ResponseEntity.status(HttpStatus.OK).body(contactService.fetchContactsPaginationAndSorting(pageNumber, pageSize, sortProperty));
     }
 
     @Operation(
@@ -141,7 +136,7 @@ public class ContactController {
             @NotEmpty(message = "Phone Number can not be a null or empty")
             @Pattern(regexp = "(^$|[0-9]{10})", message = "Phone number must be 10 digits")
             @RequestParam String phoneNumber){
-        boolean isDeleted = iContactService.deleteContact(phoneNumber);
+        boolean isDeleted = contactService.deleteContact(phoneNumber);
         if(isDeleted) {
             return ResponseEntity
                     .status(HttpStatus.OK)
@@ -177,7 +172,7 @@ public class ContactController {
     )
     @PutMapping("/update")
     public ResponseEntity<ResponseDto> updateContact(@Valid @RequestBody ContactDto contactDto){
-        boolean isUpdated = iContactService.updateContact(contactDto);
+        boolean isUpdated = contactService.updateContact(contactDto);
         if(isUpdated) {
             return ResponseEntity
                     .status(HttpStatus.OK)

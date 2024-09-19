@@ -61,7 +61,6 @@ public class ContactServiceImpl implements IContactService {
         int validPageNumber = (pageNumber != null && pageNumber >= 0) ? pageNumber : 0;
         int validPageSize = (pageSize != null && pageSize > 0) ? pageSize : 5;
         String validSortProperty = (sortProperty != null) ? sortProperty : "name";
-
         Pageable pageable = PageRequest.of(validPageNumber, validPageSize, Sort.by(validSortProperty).ascending());
         return contactRepository.findAll(pageable);
     }
