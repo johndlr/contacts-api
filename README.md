@@ -38,7 +38,7 @@ Here're some of the project's best features:
 
 <h2>🛠️ Installation Steps:</h2>
 
-<p>1. Clone the repository</p>
+<p>1. Clone the repository or Download the project image from docker hub: docker pull johndlr/contacts-api:v1</p>
 
 <p>2. Run the application</p>
 
