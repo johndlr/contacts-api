@@ -13,6 +13,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
@@ -105,8 +107,12 @@ public class ContactController {
     }
     )
     @GetMapping("/contacts/pagination")
-    public ResponseEntity<Page<Contact>> fetchContactsPaginationAndSorting(@RequestParam Integer pageNumber,@RequestParam Integer pageSize,@RequestParam String sortProperty){
-        return ResponseEntity.status(HttpStatus.OK).body(contactService.fetchContactsPaginationAndSorting(pageNumber, pageSize, sortProperty));
+    public ResponseEntity<Page<Contact>> fetchContactsPaginationAndSorting(
+            @RequestParam @Min(value = 0, message = "Page number must be greater than or equal to 0") Integer pageNumber,
+            @RequestParam @Min(value = 1, message = "Page size must be greater than or equal to 1") Integer pageSize,
+            @RequestParam @NotBlank(message = "Sort property must not be blank") String sortProperty){
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(contactService.fetchContactsPaginationAndSorting(pageNumber, pageSize, sortProperty));
     }
 
     @Operation(
