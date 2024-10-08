@@ -43,9 +43,13 @@ The Spring Cloud Function configuration is located in the application.yml file.
     "phoneNumber": "5912354784",
     "email": "tonystark@example.com"
   }
-
+  
+- **Delete Contact**:
+  ```json
   DELETE /deleteContact/5912354784
 
+- **Update Contact**:
+  ```json
   POST /updateContact
   {
     "name": "Tony",
@@ -54,8 +58,12 @@ The Spring Cloud Function configuration is located in the application.yml file.
     "email": "tonystark@avengers.com"
   }
 
+- **Fetch Contact**:
+  ```json
   GET /fetchContact/5912354784
 
+- **Fetch Contacts**:
+  ```json
   POST /fetchContacts
   {
     "pageNumber": 0,
