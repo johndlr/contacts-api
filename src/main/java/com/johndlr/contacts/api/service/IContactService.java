@@ -13,7 +13,7 @@ public interface IContactService {
 
     ContactDto fetchContact(String phoneNumber);
 
-    Page<Contact> fetchContactsPaginationAndSorting(Integer pageNumber, Integer pageSize, String sortProperty);
+    Page<Contact> fetchContacts(Integer pageNumber, Integer pageSize, String sortProperty);
 
 
 

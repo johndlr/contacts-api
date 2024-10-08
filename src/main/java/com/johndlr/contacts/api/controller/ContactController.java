@@ -107,12 +107,12 @@ public class ContactController {
     }
     )
     @GetMapping("/contacts/pagination")
-    public ResponseEntity<Page<Contact>> fetchContactsPaginationAndSorting(
+    public ResponseEntity<Page<Contact>> fetchContacts(
             @RequestParam @Min(value = 0, message = "Page number must be greater than or equal to 0") Integer pageNumber,
             @RequestParam @Min(value = 1, message = "Page size must be greater than or equal to 1") Integer pageSize,
             @RequestParam @NotBlank(message = "Sort property must not be blank") String sortProperty){
         return ResponseEntity.status(HttpStatus.OK)
-                .body(contactService.fetchContactsPaginationAndSorting(pageNumber, pageSize, sortProperty));
+                .body(contactService.fetchContacts(pageNumber, pageSize, sortProperty));
     }
 
     @Operation(

@@ -57,7 +57,7 @@ public class ContactServiceImpl implements IContactService {
     }
 
     @Override
-    public Page<Contact> fetchContactsPaginationAndSorting(Integer pageNumber, Integer pageSize, String sortProperty) {
+    public Page<Contact> fetchContacts(Integer pageNumber, Integer pageSize, String sortProperty) {
         Pageable pageable = PageRequest.of(pageNumber, pageSize, Sort.by(sortProperty).ascending());
         return contactRepository.findAll(pageable);
     }
