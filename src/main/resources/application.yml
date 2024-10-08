@@ -14,5 +14,8 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  cloud:
+    function:
+      definition: createContact;deleteContact;updateContact;fetchContact;fetchContacts
 server:
   port: 8080
