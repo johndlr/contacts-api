@@ -21,22 +21,22 @@ import java.time.LocalDateTime;
 public class BaseEntity {
 
     @CreatedDate
-    @Column(updatable = false)
+    @Column(updatable = false, name = "created_at")
     @JsonIgnore
     private LocalDateTime createdAt;
 
     @CreatedBy
-    @Column(updatable = false)
+    @Column(updatable = false , name = "created_by")
     @JsonIgnore
     private String createdBy;
 
     @LastModifiedDate
-    @Column(insertable = false)
+    @Column(insertable = false, name = "updated_at")
     @JsonIgnore
     private LocalDateTime updatedAt;
 
     @LastModifiedBy
-    @Column(insertable = false)
+    @Column(insertable = false, name = "updated_by")
     @JsonIgnore
     private String updatedBy;
 }
