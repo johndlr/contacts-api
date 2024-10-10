@@ -2,9 +2,7 @@ spring:
   application:
     name: contacts_api
   datasource:
-    url: ${MYSQLCONNSTR_CONTACTS}
-    username: ${MYSQLCONNSTR_CONTACTS_USER}
-    password: ${MYSQLCONNSTR_CONTACTS_PASSWORD}
+    url: ${MYSQLCONNSTR_CONTACTS_REST}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true
