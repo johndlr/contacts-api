@@ -1,6 +1,6 @@
 # Contact Management Application
 
-This is a contact management application that provides CRUD (Create, Read, Update, Delete) operations to manage users' contacts. The application is implemented using two different approaches: the functional approach using **Spring Cloud Function** and the traditional approach using Spring Web. There are **two branches** for this project, each representing one approach to the application. An extra branch is added that represents the application that was deployed to Azure.
+This is a contact management application that provides CRUD (Create, Read, Update, Delete) operations to manage users' contacts. The application is implemented using two different approaches: the functional approach using **Spring Cloud Function** and the traditional approach using Spring Web. There are **three branches** for this project, each representing one approach to the application. An extra branch is added that represents the application that was deployed to Azure.
 
 ## Approaches
 
