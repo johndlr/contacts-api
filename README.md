@@ -90,6 +90,8 @@ In the traditional approach, Spring Web is used to implement the CRUD operations
 - AssertJ
 - Mockito
 - Postman
+- Azure
+- Docker
 
 #### Endpoints
 
