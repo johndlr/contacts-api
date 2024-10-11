@@ -3,7 +3,7 @@ spring:
     name: contacts_api
   datasource:
     url: jdbc:mysql://contacts-server.mysql.database.azure.com:3306/contacts
-    username: juandlr@contacts-server
+    username: juandlr
     password: azure@1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
