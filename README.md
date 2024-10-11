@@ -1,6 +1,6 @@
 # Contact Management Application
 
-This is a contact management application that provides CRUD (Create, Read, Update, Delete) operations to manage users' contacts. The application is implemented using two different approaches: the functional approach using **Spring Cloud Function** and the traditional approach using Spring Web. There are **two branches** for this project, each representing one approach to the application.
+This is a contact management application that provides CRUD (Create, Read, Update, Delete) operations to manage users' contacts. The application is implemented using two different approaches: the functional approach using **Spring Cloud Function** and the traditional approach using Spring Web. There are **three branches** for this project, each representing one approach to the application. An extra branch is added that represents the application that was deployed to **Azure**.
 
 ## Approaches
 
@@ -105,6 +105,23 @@ Below are some screenshots from the Swagger UI API documentation:
 ![Swagger UI](https://github.com/user-attachments/assets/1e1be5d0-f252-4e10-a04a-a1053b90a778)
 
 ![Swagger UI](https://github.com/user-attachments/assets/d1524238-b731-4aa0-8f0d-577fa2e23a95)
+
+### Deployment to Azure App Services
+
+The application was deployed to **Azure App Services** using **GitHub Actions**, and some changes were made to the application, specifically the implementation of the H2 database was changed to a persistent one such as **Azure MySQL**.
+
+Below are some screenshots of the implementation in Azure:
+
+![Screenshot 2024-10-10 180845](https://github.com/user-attachments/assets/33682bff-3749-45cb-b5ff-b5da02f4ef75)
+
+![Screenshot 2024-10-10 181015](https://github.com/user-attachments/assets/a0f5dc0e-4a68-431c-ad5e-5de728fecff3)
+
+![Screenshot 2024-10-10 181008](https://github.com/user-attachments/assets/f1e8f1a6-ab5e-4780-91e0-1bd86e5504fb)
+
+![Screenshot 2024-10-10 180920](https://github.com/user-attachments/assets/bf419890-67fa-4cbe-917c-1f61f8a3d30b)
+
+![Screenshot 2024-10-10 182813](https://github.com/user-attachments/assets/ab40de4a-a394-4497-81a3-e269d553ec9c)
+
 
 ## License
 
